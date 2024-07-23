@@ -9,18 +9,26 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-   bool _obscureText = true;
+  bool _obscureText = true;
 
   void _togglePasswordVisibility() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
+
   bool _isChecked = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffefefe),
+      appBar: AppBar(
+        backgroundColor: const Color(0xfffefefe),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -28,12 +36,6 @@ class _SignupState extends State<Signup> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(onPressed: (){
-                  
-                }, icon: const Icon(Icons.arrow_back_ios),),
-                const SizedBox(
-                  height: 20,
-                ),
                 const Text(
                   "Create an account ✨",
                   style: TextStyle(
@@ -104,20 +106,20 @@ class _SignupState extends State<Signup> {
                   height: 10,
                 ),
                 TextFormField(
-          keyboardType: TextInputType.visiblePassword,
-          obscureText: _obscureText,
-          decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.lock_outline),
-            suffixIcon: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility_off : Icons.visibility,
-              ),
-              onPressed: _togglePasswordVisibility,
-            ),
-            border: const OutlineInputBorder(),
-            hintText: "Enter your password",
-          ),
-        ),
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: _obscureText,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: _togglePasswordVisibility,
+                    ),
+                    border: const OutlineInputBorder(),
+                    hintText: "Enter your password",
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -197,7 +199,6 @@ class _SignupState extends State<Signup> {
                     ),
                     const SizedBox(width: 10), // Space between icons
                     Container(
-                      
                       padding: const EdgeInsets.all(10),
                       height: 40,
                       width: 40,
@@ -236,7 +237,8 @@ class _SignupState extends State<Signup> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Login()),
+                          MaterialPageRoute(
+                              builder: (context) => const Login()),
                         );
                       },
                       child: const Text(
