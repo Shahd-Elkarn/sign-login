@@ -20,7 +20,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfffefefe),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -197,6 +197,7 @@ class _SignupState extends State<Signup> {
                     ),
                     const SizedBox(width: 10), // Space between icons
                     Container(
+                      
                       padding: const EdgeInsets.all(10),
                       height: 40,
                       width: 40,

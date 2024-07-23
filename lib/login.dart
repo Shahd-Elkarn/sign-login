@@ -9,28 +9,32 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-   bool _obscureText = true;
+  bool _obscureText = true;
 
   void _togglePasswordVisibility() {
     setState(() {
       _obscureText = !_obscureText;
     });
   }
+
   bool _isChecked = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-       body: SafeArea(
+      backgroundColor: const Color(0xfffefefe),
+      body: SafeArea(
         child: Padding(
-          padding:  const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon: const Icon(Icons.arrow_back_ios),),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -51,7 +55,6 @@ class _LoginState extends State<Login> {
                 const SizedBox(
                   height: 20,
                 ),
-                
                 const Text(
                   "Email",
                   style: TextStyle(
@@ -84,20 +87,20 @@ class _LoginState extends State<Login> {
                   height: 10,
                 ),
                 TextFormField(
-          keyboardType: TextInputType.visiblePassword,
-          obscureText: _obscureText,
-          decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.lock_outline),
-            suffixIcon: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility_off : Icons.visibility,
-              ),
-              onPressed: _togglePasswordVisibility,
-            ),
-            border: const OutlineInputBorder(),
-            hintText: "Enter your password",
-          ),
-        ),
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: _obscureText,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: _togglePasswordVisibility,
+                    ),
+                    border: const OutlineInputBorder(),
+                    hintText: "Enter your password",
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -115,7 +118,10 @@ class _LoginState extends State<Login> {
                     ),
                     const Text('Rumember for 30 days'),
                     const Spacer(),
-                    const Text('Forgot password',style: TextStyle(color: Colors.blue),),
+                    const Text(
+                      'Forgot password',
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -129,10 +135,7 @@ class _LoginState extends State<Login> {
                     onPressed: () {},
                     child: const Text(
                       'Log in',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18
-                      ),
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
                 ),
@@ -217,7 +220,8 @@ class _LoginState extends State<Login> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Signup()),
+                          MaterialPageRoute(
+                              builder: (context) => const Signup()),
                         );
                       },
                       child: const Text(
@@ -232,7 +236,6 @@ class _LoginState extends State<Login> {
           ),
         ),
       ),
-    
     );
   }
 }
